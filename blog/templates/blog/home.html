@@ -1,8 +1,17 @@
-{% for artilce in articles %}
-<artilce>
-	<img src="{{artilce.img}}" alt="{{artilce.title}}" />
-	<h1>{{artilce.title}}</h1>
-	<p>{{artilce.description}}</p>
-</artilce>
-
-{% endfor %}
+<center>
+	{% for artilce in articles %}
+	<artilce>
+		<img
+			src="{{artilce.thumbnail.url}}"
+			alt="{{artilce.title}}"
+			width="600"
+			height="400"
+		/>
+		<h1>
+			<a href="{% url 'blog:detail' artilce.slug %}">{{artilce.title}}</a>
+		</h1>
+		<small>{{artilce.published}}</small>
+		<p>{{artilce.description}}</p>
+	</artilce>
+	{% endfor %}
+</center>
